@@ -21,27 +21,13 @@ h1{
 }
 
 .card{
-<<<<<<< HEAD
-    margin: 20px;
-    border-width: 10px;
-    border-color: #53aa10;
-    
-}
-
-.navbar-brand-titulo{
-  font-family: 'Lobster', cursive;
-  color: #202328;
-  font-size: 30px;
-=======
   margin: 20px;
   border-width: 10px;
   border-color: #53aa10;
-  
 }
 
 .navbar-brand-titulo{
 font-family: 'Lobster', cursive;
 color: #202328;
 font-size: 30px;
->>>>>>> 7045b937e7ac30a375e66eda65502be0fa09eaf8
 }
