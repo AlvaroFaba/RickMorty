@@ -15,20 +15,33 @@
 </head>
 
 <body>
-    <div class="container box-principal">
-        <h1>Rick and Morty</h1>
-        <div class="row">
-            <div class="col-md-12 box-secundaria">
-                <div class="form-group">
-                    <input id="inputBusqueda" placeholder="Numero Personaje" type="text" class="form-control" />
-                    <button id="buscar" type="submit" class="btn btn-primary btn-block">
-                        Buscar
-                    </button>
-                    <button id="limpiar" type="submit" class="btn btn-info btn-block">
-                        Limpiar
-                    </button>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+        <a class="navbar-brand-titulo" href="#">Rick and Morty</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" id="inputBusqueda" placeholder="Numero Personaje" type="text" aria-label="Search" />
+                <button id="buscar" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    Buscar Personaje
+                </button>
+                <button id="limpiar" class="btn btn-outline-primary my-2 my-sm-0 ml-2" type="submit">
+                    Limpiar Busqueda
+                </button>
             </div>
+        </div>
+    </nav>
+    <div class="container box-principal">
+        <div class="row">
+            
         </div>
         <div id="card" class="row d-flex justify-content-center"></div>
     </div>

@@ -26,3 +26,9 @@ h1{
     border-color: #53aa10;
     
 }
+
+.navbar-brand-titulo{
+  font-family: 'Lobster', cursive;
+  color: #202328;
+  font-size: 30px;
+}
