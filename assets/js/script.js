@@ -1,4 +1,10 @@
+// Variables Globales
+var numeroEpisodios;
+var arrayPersonajesAgregados = [];
+
+// Funcion de Lectura Principal
 $(function () {
+  init();
   $("#buscar").click((e) => {
     buscarPersonaje();
   });
@@ -11,7 +17,6 @@ function buscarPersonaje() {
   var idPersonaje = $("#inputBusqueda").val();
   obtenerPersonaje(idPersonaje);
   $("#inputBusqueda").focus();
-
 }
 
 function obtenerPersonaje(id) {
@@ -19,8 +24,9 @@ function obtenerPersonaje(id) {
     type: "GET",
     url: `https://rickandmortyapi.com/api/character/${id}`,
     success: function (personaje) {
-      console.log(personaje);
       $("#card").append(insertarPersonaje(personaje));
+      addPersonajeList(personaje);
+      generarGrafico();
     },
   });
 }
@@ -44,4 +50,57 @@ function insertarPersonaje(personaje) {
 function limpiar() {
   $("#card").empty();
   $("#inputBusqueda").focus();
+  cleanPersonajeAgregados();
+}
+
+function getAllEpisodes() {
+  $.ajax({
+    type: "GET",
+    url: "https://rickandmortyapi.com/api/episode",
+    success: function (response) {
+      numeroEpisodios = response.info.count;
+    },
+  });
+}
+
+function init() {
+  getAllEpisodes();
+}
+
+function addPersonajeList(personaje) {
+  var grafico_personaje = {
+    id: personaje.id,
+    label: personaje.name,
+    y: personaje.episode.length,
+  };
+  arrayPersonajesAgregados.push(grafico_personaje);
+}
+
+function generarGrafico() {
+  var options = {
+    animationEnabled: true,
+    theme: "dark1",
+    title: {
+      text: `Participación Total en ${numeroEpisodios} Episodios `,
+      fontFamily: 'Lobster',
+      fontSize: 30,
+    },
+    backgroundColor: "#202328",
+    axisY: {
+      maximum: numeroEpisodios,
+      interval: 5,
+    },
+    data: [
+      {
+        type: "column",
+        dataPoints: [...arrayPersonajesAgregados],
+      },
+    ],
+  };
+  $("#grafico").CanvasJSChart(options);
+}
+
+function cleanPersonajeAgregados(){
+  arrayPersonajesAgregados = [];
+  generarGrafico();
 }
