@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Rick and Morty | Version 0.1</title>
+    <title>Rick and Morty | Version 0.2</title>
 </head>
 
 <body>
@@ -29,7 +29,8 @@
                 </li>
             </ul>
             <div class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" id="inputBusqueda" placeholder="Numero Personaje" type="text" aria-label="Search" />
+                <input class="form-control mr-sm-2" id="inputBusqueda" placeholder="Numero Personaje" type="text"
+                    aria-label="Search" />
                 <button id="buscar" class="btn btn-outline-success my-2 my-sm-0" type="submit">
                     Buscar Personaje
                 </button>
@@ -41,7 +42,7 @@
     </nav>
     <div class="container box-principal">
         <div class="row">
-            
+            <div id="grafico" class="md-9" style="height: 200px"></div>
         </div>
         <div id="card" class="row d-flex justify-content-center"></div>
     </div>
@@ -51,6 +52,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
     <script src="/assets/js/script.js"></script>
 </body>
 

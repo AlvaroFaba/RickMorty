@@ -1,10 +1,17 @@
+// Variables Globales
+var numeroEpisodios;
+var arrayPersonajesAgregados = [];
+
+// Funcion de Lectura Principal
 $(function () {
+  init();
   $("#buscar").click((e) => {
     buscarPersonaje();
   });
   $("#limpiar").click((c) => {
     limpiar();
   });
+
 });
 
 function buscarPersonaje() {
@@ -44,4 +51,26 @@ function insertarPersonaje(personaje) {
 function limpiar() {
   $("#card").empty();
   $("#inputBusqueda").focus();
+}
+
+function getAllEpisodes(){
+  $.ajax({
+    type: "GET",
+    url: "https://rickandmortyapi.com/api/episode",
+    success: function (response) {
+      numeroEpisodios = response.info.count;
+    }
+  });
+}
+
+function init(){
+  getAllEpisodes()
+}
+
+function addPersonajeList(personaje){
+  var new_personaje = {
+    id: personaje.id,
+    label: personaje.name,
+    y: personaje.episode.lenght,
+  }
 }
